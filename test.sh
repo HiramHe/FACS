@@ -36,35 +36,7 @@ conda config --env --add channels conda-forge
 
 echo "# Installing conda packages"
 conda install -y \
-		sqlite \
-        trimmomatic \
-        megahit \
-        paladin \
-        samtools \
-        eXpress \
-        pigz \
-        parallel \
-        matplotlib \
-        scikit-learn \
-        pandas \
-        r-essentials \
-        r-base \
-        r-caret \
-        r-randomforest \
-        r-dplyr \
-        r-data.table \
-		--quiet
-
-echo "# Installing non-conda R packages"
-echo "
-##########################################################################
-install.packages(\"Peptides\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
-install.packages(\"doParallel\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
-install.packages(\"obliqueRF\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
-##########################################################################
-" > inst.R
-R --vanilla --slave < inst.R --quiet
-rm -rf inst.R
+		eXpress
 
 echo "[ ## 2.] Installing prodigal_modified"
 

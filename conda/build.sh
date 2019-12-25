@@ -1,3 +1,3 @@
 #!/bin/bash
 
-bash conda/test.sh
+bash test.sh
