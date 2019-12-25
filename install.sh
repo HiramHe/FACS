@@ -29,10 +29,10 @@ echo "# Creating new environment for FACS"
 mkdir -p envs
 conda create --yes -p $Lib/envs/FACS_env python=3.7
 source activate $Lib/envs/FACS_env
-conda config --env --add channels r
-conda config --env --add channels defaults
-conda config --env --add channels bioconda
-conda config --env --add channels conda-forge
+conda config --add channels r
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
 
 echo "# Installing conda packages"
 conda install -y \
