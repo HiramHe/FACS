@@ -1,0 +1,36 @@
+package:
+  name: facs
+  version: 0.1
+
+build:
+  skip: True # [py<35]
+  
+source:
+  git_url:  https://github.com/FACS-Antimicrobial-Peptides-Prospection/FACS.git
+  
+build:
+  number: 0
+
+requirements:
+  run:
+    - python
+    - sqlite
+    - trimmomatic
+    - megahit
+    - paladin
+    - samtools
+    - eXpress
+    - pigz
+    - parallel
+    - matplotlib
+    - scikit-learn
+    - pandas
+    - r-essentials
+    - r-base
+    - r-caret
+    - r-randomforest
+    - r-dplyr
+    - r-data.table
+
+about:
+  summary: "a module for amp prediction"
