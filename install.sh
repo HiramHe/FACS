@@ -28,7 +28,7 @@ Lib="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 echo "# Creating new environment for FACS"
 mkdir -p envs
 conda create --yes -p $Lib/envs/FACS_env python=3.7
-source activate ./envs/FACS_env
+source activate $Lib/envs/FACS_env
 conda config --env --add channels r
 conda config --env --add channels defaults
 conda config --env --add channels bioconda
