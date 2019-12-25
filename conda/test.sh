@@ -36,7 +36,7 @@ conda config --env --add channels conda-forge
 
 echo "# Installing conda packages"
 conda install -y \
-		sqlite \
+		paladin
 
 echo "[ ## 2.] Installing prodigal_modified"
 
