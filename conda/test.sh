@@ -34,6 +34,10 @@ conda config --env --add channels defaults
 conda config --env --add channels bioconda
 conda config --env --add channels conda-forge
 
+echo "# Installing conda packages"
+conda install -y \
+		sqlite \
+
 echo "[ ## 2.] Installing prodigal_modified"
 
 cd prodigal_modified
