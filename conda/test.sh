@@ -36,7 +36,7 @@ conda config --env --add channels conda-forge
 
 echo "# Installing conda packages"
 conda install -y \
-		paladin
+		eXpress
 
 echo "[ ## 2.] Installing prodigal_modified"
 
