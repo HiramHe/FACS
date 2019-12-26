@@ -582,7 +582,7 @@ do
 		echo -e "header\tseq\tgroup" > .tmp
 		sed '/>/d' "$i" > .seqs; grep '>' "$i" | sed 's/ .*//g' | sed 's/>//g' > .heade; paste -d'\t' .heade .seqs | awk '{print $1"\t"$2"\t""Unk"}' >> .tmp; rm -rf .heade .seqs
 		rm -rf "$i"
-		R --slave --args .tmp .out.file < feat.R >/dev/null 2>/dev/null
+		R --slave --args .tmp .out.file < feat.R >/dev/stdout 2>/dev/stderr
 		
 		rm -rf .tmp
 	
@@ -641,7 +641,7 @@ then
 	for i in splits/small-chunk*
 	do
 		echo "[ M ::: Predicting AMPs -- $i ]"
-		R --vanilla --slave --args $i "$Lib"/r22_largeTraining.rds "$Lib"/rf_dataset1.rds "${i/.tabdesc.tsv/.fin}" < pred.R >/dev/null 2>/dev/null
+		R --vanilla --slave --args $i "$Lib"/r22_largeTraining.rds "$Lib"/rf_dataset1.rds "${i/.tabdesc.tsv/.fin}" < pred.R >/dev/stdout 2>/dev/stderr
 		if [[ -s "${i/.tabdesc.tsv/.fin}" ]]
 		then
 			touch "${i/.tabdesc.tsv/.fin}"
