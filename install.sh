@@ -61,7 +61,6 @@ install.packages(\"Peptides\", repos = \"http://cran.us.r-project.org\", depende
 install.packages(\"doParallel\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
 install.packages(\"obliqueRF\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
 install.packages(\"dplyr\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
-update.packages()
 ##########################################################################
 " > inst.R
 R --vanilla --slave < inst.R --quiet
