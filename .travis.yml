@@ -1,10 +1,10 @@
 language:
   - python
 before_install:
-  - wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda3.sh
-  - chmod +x miniconda3.sh
-  - "./miniconda3.sh -b"
-  - export PATH=/home/travis/miniconda3/bin:$PATH
+  - wget http://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda2.sh
+  - chmod +x miniconda2.sh
+  - "./miniconda2.sh -b"
+  - export PATH=/home/travis/miniconda2/bin:$PATH
   - conda update --yes conda --quiet
 install:
   - bash install.sh
