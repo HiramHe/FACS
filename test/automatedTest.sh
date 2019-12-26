@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-cd ..
 pwd
 
 bash FACS.sh --mode p --fasta example_seqs/expep.faa.gz --outfolder out_peptides --outtag example -t 4
