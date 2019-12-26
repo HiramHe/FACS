@@ -50,6 +50,7 @@ conda install -y \
         r-essentials \
         r-base \
         r-randomforest \
+		r-stringi \
         r-data.table \
 		--quiet
 
