@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 cd ..
+pwd
 
 bash FACS.sh --mode p --fasta example_seqs/expep.faa.gz --outfolder out_peptides --outtag example -t 4
 bash FACS.sh --mode c --fasta example_seqs/excontigs.fna.gz --outfolder out_contigs --outtag out_contigs -t 4
