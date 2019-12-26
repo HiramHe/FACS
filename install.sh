@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-pacman -Syu
-
 set -e
 
 echo "
@@ -53,7 +51,6 @@ conda install -y \
         r-base \
         r-caret \
         r-randomforest \
-        r-dplyr \
         r-data.table \
 		--quiet
 
@@ -63,6 +60,7 @@ echo "
 install.packages(\"Peptides\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
 install.packages(\"doParallel\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
 install.packages(\"obliqueRF\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
+install.packages(\"dplyr\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
 update.packages()
 ##########################################################################
 " > inst.R
