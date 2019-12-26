@@ -70,7 +70,7 @@ echo "[ ## 2.] Installing prodigal_modified"
 
 cd prodigal_modified
 # conda will add $GCC to environment
-make
+make CC=$GCC
 mv prodigal ../envs/FACS_env/bin/prodigal_sm
 
 source deactivate
