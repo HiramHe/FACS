@@ -22,22 +22,22 @@
 # Required libraries
 #####################################################
 if(!require(randomForest)){
-  install.packages("randomForest",dependencies=TRUE)
+  install.packages("randomForest",repos="http://cran.us.r-project.org",dependencies=TRUE)
   library(randomForest)
 }
 
 if(!require(caret)){
-  install.packages("caret",dependencies=TRUE)
+  install.packages("caret", repos="http://cran.us.r-project.org", dependencies=TRUE)
   library(caret)
 }
 
 if(!require(dplyr)){
-  install.packages("dplyr", dependencies = TRUE)
+  install.packages("dplyr", repos="http://cran.us.r-project.org", dependencies = TRUE)
   library(dplyr)
 }
 
 if(!require(data.table)){
-  install.packages("data.table", dependencies = TRUE)
+  install.packages("data.table", repos="http://cran.us.r-project.org",dependencies = TRUE)
   library(data.table)
 }
 #####################################################
