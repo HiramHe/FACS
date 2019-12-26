@@ -55,8 +55,9 @@ conda install -y \
         r-data.table \
 		r-peptides \
 		r-doparallel \
-		r-stringi \
 		--quiet
+
+conda install -c r r-stringi
 
 echo "# Installing non-conda R packages"
 echo "
