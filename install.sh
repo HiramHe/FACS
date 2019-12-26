@@ -50,6 +50,7 @@ conda install -y \
         r-essentials \
         r-base \
         r-caret \
+		r-quantreg \
         r-randomforest \
         r-dplyr \
         r-data.table \

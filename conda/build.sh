@@ -1,3 +1,3 @@
 #!/bin/bash
 
-#bash test.sh
+echo 'build facs conda.'
