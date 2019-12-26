@@ -49,7 +49,7 @@ conda install -y \
         pandas \
         r-essentials \
         r-base \
-		-c r r-stringi \
+		r-stringi \
         r-randomforest \
 		r-caret \
 		r-dplyr \
