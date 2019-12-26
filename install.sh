@@ -61,7 +61,7 @@ conda install -y \
 echo "# Installing non-conda R packages"
 echo "
 ##########################################################################
-install.packages(\"obliqueRF\", repos = \"http://cran.us.r-project.org\", lib=\""$Lib"/envs/FACS_env/lib/R/library\" dependencies=TRUE)
+install.packages(\"obliqueRF\", repos = \"http://cran.us.r-project.org\", lib=\""$Lib"/envs/FACS_env/lib/R/library\", dependencies=TRUE)
 ##########################################################################
 " > inst.R
 R --vanilla --slave < inst.R --quiet
