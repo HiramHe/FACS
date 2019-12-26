@@ -49,7 +49,6 @@ conda install -y \
         pandas \
         r-essentials \
         r-base \
-        r-caret \
         r-randomforest \
         r-data.table \
 		--quiet
@@ -61,6 +60,7 @@ install.packages(\"Peptides\", repos = \"http://cran.us.r-project.org\", depende
 install.packages(\"doParallel\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
 install.packages(\"obliqueRF\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
 install.packages(\"dplyr\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
+install.packages(\"caret\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
 ##########################################################################
 " > inst.R
 R --vanilla --slave < inst.R --quiet
