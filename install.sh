@@ -49,19 +49,19 @@ conda install -y \
         pandas \
         r-essentials \
         r-base \
+		-c r r-stringi \
         r-randomforest \
-		r-stringi \
+		r-caret \
+		r-dplyr \
         r-data.table \
+		r-peptides \
+		r-doparallel \
 		--quiet
 
 echo "# Installing non-conda R packages"
 echo "
 ##########################################################################
-install.packages(\"Peptides\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
-install.packages(\"doParallel\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
 install.packages(\"obliqueRF\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
-install.packages(\"dplyr\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
-install.packages(\"caret\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
 ##########################################################################
 " > inst.R
 R --vanilla --slave < inst.R --quiet
