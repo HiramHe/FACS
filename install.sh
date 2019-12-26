@@ -57,7 +57,7 @@ conda install -y \
 		r-doparallel \
 		--quiet
 
-conda install -y -c r r-stringi
+conda install -y -c r r-stringi --quiet
 
 echo "# Installing non-conda R packages"
 echo "
