@@ -55,14 +55,13 @@ conda install -y \
         r-data.table \
 		r-peptides \
 		r-doparallel \
+		r-stringi \
 		--quiet
-
-conda install -y -c r r-stringi --quiet
 
 echo "# Installing non-conda R packages"
 echo "
 ##########################################################################
-install.packages(\"obliqueRF\", repos = \"http://cran.us.r-project.org\", dependencies=TRUE)
+install.packages(\"obliqueRF\", repos = \"http://cran.us.r-project.org\", lib="$Lib"/envs/FACS_env/lib/R/library dependencies=TRUE)
 ##########################################################################
 " > inst.R
 R --vanilla --slave < inst.R --quiet
