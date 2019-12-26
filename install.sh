@@ -49,7 +49,6 @@ conda install -y \
         pandas \
         r-essentials \
         r-base \
-		r-stringi \
         r-randomforest \
 		r-caret \
 		r-dplyr \
@@ -57,6 +56,8 @@ conda install -y \
 		r-peptides \
 		r-doparallel \
 		--quiet
+
+conda install -y -c r r-stringi --quiet
 
 echo "# Installing non-conda R packages"
 echo "
