@@ -58,17 +58,7 @@ conda install -y \
 		r-stringi \
 		--quiet
 
-echo "# Installing non-conda R packages"
-#echo "
-##########################################################################
-#install.packages(\"obliqueRF\", repos = \"http://cran.us.r-project.org\", lib=\""$Lib"/envs/FACS_env/lib/R/library\", dependencies=TRUE)
-##########################################################################
-#" > inst.R
-#R --vanilla --slave < inst.R --quiet
-#rm -rf inst.R
-
 echo "[ ## 2.] Installing prodigal_modified"
-
 cd prodigal_modified
 make CC=$GCC --quiet # conda will add $GCC to environment
 mv prodigal ../envs/FACS_env/bin/prodigal_sm
