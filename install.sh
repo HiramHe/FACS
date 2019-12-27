@@ -59,13 +59,13 @@ conda install -y \
 		--quiet
 
 echo "# Installing non-conda R packages"
-echo "
+#echo "
 ##########################################################################
-install.packages(\"obliqueRF\", repos = \"http://cran.us.r-project.org\", lib=\""$Lib"/envs/FACS_env/lib/R/library\", dependencies=TRUE)
+#install.packages(\"obliqueRF\", repos = \"http://cran.us.r-project.org\", lib=\""$Lib"/envs/FACS_env/lib/R/library\", dependencies=TRUE)
 ##########################################################################
-" > inst.R
-R --vanilla --slave < inst.R --quiet
-rm -rf inst.R
+#" > inst.R
+#R --vanilla --slave < inst.R --quiet
+#rm -rf inst.R
 
 echo "[ ## 2.] Installing prodigal_modified"
 
