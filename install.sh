@@ -30,9 +30,9 @@ mkdir -p envs
 conda create --yes -p $Lib/envs/FACS_env python=3.7
 source activate $Lib/envs/FACS_env
 conda config --env --add channels defaults
-conda config --env --add channels r
 conda config --env --add channels bioconda
 conda config --env --add channels conda-forge
+conda config --env --add channels r
 
 echo "# Installing conda packages"
 conda install -y \

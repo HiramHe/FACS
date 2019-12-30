@@ -22,12 +22,12 @@
 # Required libraries
 #####################################################
 if(!require(randomForest)){
-  install.packages("randomForest", dependencies=TRUE)
+  install.packages("randomForest")
   library(randomForest)
 }
 
 if(!require(caret)){
-  install.packages("caret", dependencies=TRUE)
+  install.packages("caret")
   library(caret)
 }
 

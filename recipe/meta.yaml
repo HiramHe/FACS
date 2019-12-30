@@ -1,15 +1,15 @@
 {% set name = "facs" %}
-{% set version = "0.2" %}
+{% set version = "0.1" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
   
 source:
-  git_url: https://github.com/HiramHe/FACS.git
+  git_url: https://github.com/FACS-Antimicrobial-Peptides-Prospection/FACS
 
 build:
-  number: 7
+  number: 0
 
 requirements:
   run:
@@ -39,7 +39,7 @@ about:
   license: MIT
   summary: "a module for amp prediction"
   description: |
-    just for test
+    amp prediction
   dev_url: https://github.com/FACS-Antimicrobial-Peptides-Prospection/FACS
   
 extra:

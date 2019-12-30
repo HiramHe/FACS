@@ -131,7 +131,7 @@ then
 	if [[ $mode == "r" ]]
 	then
 		
-		if [ $read_1 == "example_seqs/R1.fq.gz" ] || [ $read_1 == "example_seqs/R2.fq.gz" ]
+		if [ -s "$Lib/$read_1" ]
 		then
 			read_1="$Lib/$read_1"
 		fi
@@ -140,7 +140,7 @@ then
 		then
 			echo ""
 		else
-			if [ $read_2 == "example_seqs/R1.fq.gz" ] || [ $read_2 == "example_seqs/R2.fq.gz" ]
+			if [ -s "$Lib/$read_2" ]
 			then
 				read_2="$Lib/$read_2"
 			fi
@@ -201,7 +201,7 @@ Log		$outfolder/$log"
 	then
 		mode="pep"
 		
-		if [ $fasta == "example_seqs/expep.faa.gz" ]
+		if [ -s "$Lib/$fasta" ]
 		then
 			fasta="$Lib/$fasta"
 		fi
@@ -228,7 +228,7 @@ Log			$outfolder/$log"
 	elif	[[ $mode == "c" ]]
 	then
 		
-		if [ $fasta == "example_seqs/excontigs.fna.gz" ]
+		if [ -s "$Lib/$fasta" ]
 		then
 			fasta="$Lib/$fasta"
 		fi
@@ -256,7 +256,7 @@ Log			$outfolder/$log"
 	then
 		echo "[ M ::: FACS mode has been assigned as read mapper ]"
 		
-		if [ $read_1 == "example_seqs/R1.fq.gz" ] || [ $read_1 == "example_seqs/R2.fq.gz" ]
+		if [ -s "$Lib/$read_1" ]
 		then
 			read_1="$Lib/$read_1"
 		fi
@@ -265,7 +265,7 @@ Log			$outfolder/$log"
 		then
 			echo ""
 		else
-			if [ $read_2 == "example_seqs/R1.fq.gz" ] || [ $read_2 == "example_seqs/R2.fq.gz" ]
+			if [ -s "$Lib/$read_2" ]
 			then
 				read_2="$Lib/$read_2"
 			fi
@@ -275,7 +275,7 @@ Log			$outfolder/$log"
 		then
 			echo ""
 		else
-			if [ $fasta == "example_seqs/ref.faa.gz" ]
+			if [ -s "$Lib/$fasta" ]
 			then
 				fasta="$Lib/$fasta"
 			fi
@@ -407,7 +407,7 @@ then
 		echo "[ W ::: Directory $outfolder does not exist // create it. ]"
 		mkdir -p /tmp/$outfolder
 		outfolder="/tmp/$outfolder"
-		#outfolder=$(mktemp --tmpdir --directory $outfolder.XXXXXXX)
+		#outfolder=$(mktemp --tmpdir --directory $outfolder)
 		echo "outfolder: $outfolder"
 	fi
 else
@@ -507,7 +507,7 @@ callorf ()
 if [[ "$mode" != "pep" ]]
 then
 	echo "[ M ::: Calling ORFs ]"
-	
+
 	rm -rf callorfs/
 	mkdir callorfs
 
@@ -519,8 +519,7 @@ then
 		rm -rf t
 	else
 		echo "[ W ::: ERR910 - Error in producing predictions ]"
-		cd ../;
-		rm -rf $tp
+		cd ../; rm -rf $tp
 		exit
 	fi
 
@@ -649,7 +648,7 @@ do
 		echo -e "header\tseq\tgroup" > .tmp
 		sed '/>/d' "$i" > .seqs; grep '>' "$i" | sed 's/ .*//g' | sed 's/>//g' > .heade; paste -d'\t' .heade .seqs | awk '{print $1"\t"$2"\t""Unk"}' >> .tmp; rm -rf .heade .seqs
 		rm -rf "$i"
-		R --slave --args .tmp .out.file < feat.R >/dev/stdout 2>/dev/stderr
+		R --slave --args .tmp .out.file < feat.R >/dev/null 2>/dev/null
 		
 		rm -rf .tmp
 	
@@ -708,7 +707,7 @@ then
 	for i in splits/small-chunk*
 	do
 		echo "[ M ::: Predicting AMPs -- $i ]"
-		R --vanilla --slave --args $i "$Lib"/r22_largeTraining.rds "$Lib"/rf_dataset1.rds "${i/.tabdesc.tsv/.fin}" < pred.R >/dev/stdout 2>/dev/stderr
+		R --vanilla --slave --args $i "$Lib"/r22_largeTraining.rds "$Lib"/rf_dataset1.rds "${i/.tabdesc.tsv/.fin}" < pred.R >/dev/null 2>/dev/null
 		if [[ -s "${i/.tabdesc.tsv/.fin}" ]]
 		then
 			touch "${i/.tabdesc.tsv/.fin}"
@@ -1072,9 +1071,6 @@ sed "s|PEPPERIDY|$Lib/envs/FACS_env/lib/R/library/|g" $Lib/features_130819.R > f
 sed "s|PEPPERIDY|$Lib/envs/FACS_env/lib/R/library/|g" $Lib/Predict_130819.R > pred.R
 chmod +x feat.R
 chmod +x pred.R
-
-###################################################### test
-ls -l
 
 if [[ $mode == "pe" ]]
 then
