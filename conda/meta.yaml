@@ -1,5 +1,5 @@
 {% set name = "facs" %}
-{% set version = "0.1" %}
+{% set version = "0.2" %}
 
 package:
   name: {{ name }}
@@ -9,10 +9,9 @@ source:
   git_url: https://github.com/HiramHe/FACS.git
 
 build:
-  number: 0
+  number: 7
 
 requirements:
-  build:
   run:
     - python
     - sqlite
@@ -34,7 +33,6 @@ requirements:
     - r-data.table
     - r-peptides
     - r-doparallel
-    - r-stringi
 
 about:
   home: https://github.com/FACS-Antimicrobial-Peptides-Prospection/FACS
