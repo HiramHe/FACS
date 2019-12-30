@@ -271,9 +271,14 @@ Log			$outfolder/$log"
 			fi
 		fi
 		
-		if [ $fasta == "example_seqs/ref.faa.gz" ]
+		if [ -z $fasta ]
 		then
-			fasta="$Lib/$fasta"
+			echo ""
+		else
+			if [ $fasta == "example_seqs/ref.faa.gz" ]
+			then
+				fasta="$Lib/$fasta"
+			fi
 		fi
 		
 		if [ -z $Reference ]
