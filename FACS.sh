@@ -797,7 +797,7 @@ $pepval
        CLP     - Cationic Linear peptide
        HEMO    - Hemolytic
        NonHEMO - Non-Hemolytic
-########################################################" >> "$log"
+########################################################" > "$outfolder"/.log
 else
     ## Preparing report
     echo -e "######################################################## FACS report

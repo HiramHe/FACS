@@ -11,4 +11,4 @@ install:
   - export PATH=$HOME/miniconda3/bin:$PATH
   - bash install.sh
 script:
-  - bash automatedTest.sh
+  - bash .tests/automatedTest.sh
