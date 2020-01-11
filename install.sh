@@ -3,15 +3,15 @@
 set -e
 
 echo "
-#########################################################################
-######## FACS - Fast AMP Classification System        ###################
-#########################################################################
-########                    Authors:                  ###################
-########                                              ###################
-######## Célio Dias Santos Júnior, Luis Pedro Coelho  ###################
-#########################################################################
-######## ISTBI - FUDAN University / Shanghai - China  ###################
-#########################################################################
+#####################################################
+###     FACS - Fast AMP Classification System     ###
+#####################################################
+###                    Authors                    ###
+###                                               ###
+###  Célio Dias Santos Júnior, Luis Pedro Coelho  ###
+#$###################################################
+###  ISTBI - FUDAN University / Shanghai - China  ###
+##$##################################################
 "
 
 if ! which conda > /dev/null; then
@@ -35,30 +35,27 @@ conda config --env --add channels conda-forge
 conda config --env --add channels r
 
 echo "# Installing conda packages"
+
+# tzlocal is necessary for rpy2-pandas integration
+# rpy2 must be 3.0.0 or later!
 conda install -y \
-		sqlite \
-        trimmomatic \
+        ngless \
         megahit \
         paladin \
         samtools \
         eXpress \
         pigz \
         parallel \
-        matplotlib \
-        scikit-learn \
         pandas \
-        r-essentials \
+        "rpy2 > 3" \
+        tzlocal \
         r-base \
+        r-essentials \
+        r-peptides \
         r-randomforest \
-		r-caret \
-		r-dplyr \
-        r-data.table \
-		r-peptides \
-		r-doparallel \
-		r-stringi \
-		--quiet
+        --quiet
 
-echo "[ ## 2.] Installing prodigal_modified"
+echo "# Installing prodigal_modified"
 cd prodigal_modified
 make CC=$GCC --quiet # conda will add $GCC to environment
 mv prodigal ../envs/FACS_env/bin/prodigal_sm
@@ -66,10 +63,13 @@ mv prodigal ../envs/FACS_env/bin/prodigal_sm
 source deactivate
 
 cd ..
-chmod +x CTDDClass.py
 
 echo "############ Installation procedures finished
 ****** Thank you for installing FACS ********
 --- Please submit bugreports/comments to
 celio.diasjunior@gmail.com
+
+or
+
+https://github.com/FACS-Antimicrobial-Peptides-Prospection/FACS/issues
 "
