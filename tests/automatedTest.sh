@@ -19,7 +19,7 @@ outfolder_mode_a_ref="out_abundance_pred"
 outtag_mode_a_ref="example_abundance_pred"
 
 
-cd ..
+cd $HOME/FACS/
 echo ''
 
 
@@ -224,4 +224,5 @@ echo "=================== finish to test mode a with example_seqs/R1.fq.gz and r
 echo ''
 
 echo "========================================== done =========================================="
+cd $workDir
 echo ''
